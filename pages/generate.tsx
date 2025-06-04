@@ -24,7 +24,7 @@ export default function GeneratePage() {
       } else {
         setError(data.error || '生成に失敗しました');
       }
-    } catch (err) {
+    } catch {
       setError('通信エラーが発生しました');
     } finally {
       setLoading(false);
