@@ -78,28 +78,8 @@ const GeneratePage: React.FC = () => {
     }
   };
 
-  // ナビゲーションバー
-  const navTab = (
-    <div className="bg-blue-600 text-white">
-      <div className="max-w-4xl mx-auto flex items-center px-4 py-3">
-        <Link href="/">
-          <span className="font-bold text-lg mr-8">エクセル数式ナビAI</span>
-        </Link>
-        <div className="flex space-x-2">
-          <Link href="/">
-            <span className={`px-4 py-1 rounded-full font-semibold ${router.pathname === '/' ? 'bg-white text-blue-700' : 'text-white'}`}>ホーム</span>
-          </Link>
-          <Link href="/generate">
-            <span className={`px-4 py-1 rounded-full font-semibold ${router.pathname === '/generate' ? 'bg-white text-blue-700' : 'text-white'}`}>数式生成</span>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-gray-50">
-      {navTab}
       <div className="max-w-4xl mx-auto py-10 px-4">
         <TemplateSelector
           templates={templates}
