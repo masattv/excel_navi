@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { templates } from '../data/templates';
 import TemplateSelector from '@/components/TemplateSelector';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -40,6 +42,7 @@ const GeneratePage: React.FC = () => {
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const selectedTemplate = templates.find(t => t.id === selectedId);
 
@@ -75,14 +78,28 @@ const GeneratePage: React.FC = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-blue-600 text-white py-6">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-2xl font-bold">エクセル数式ナビAI</h1>
-          <p className="mt-2 text-blue-100">AIがあなたの要件に合わせて最適な数式を生成します</p>
+  // ナビゲーションバー
+  const navTab = (
+    <div className="bg-blue-600 text-white">
+      <div className="max-w-4xl mx-auto flex items-center px-4 py-3">
+        <Link href="/">
+          <span className="font-bold text-lg mr-8">エクセル数式ナビAI</span>
+        </Link>
+        <div className="flex space-x-2">
+          <Link href="/">
+            <span className={`px-4 py-1 rounded-full font-semibold ${router.pathname === '/' ? 'bg-white text-blue-700' : 'text-white'}`}>ホーム</span>
+          </Link>
+          <Link href="/generate">
+            <span className={`px-4 py-1 rounded-full font-semibold ${router.pathname === '/generate' ? 'bg-white text-blue-700' : 'text-white'}`}>数式生成</span>
+          </Link>
         </div>
       </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {navTab}
       <div className="max-w-4xl mx-auto py-10 px-4">
         <TemplateSelector
           templates={templates}
