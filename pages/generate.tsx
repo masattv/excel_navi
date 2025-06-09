@@ -46,11 +46,11 @@ const GeneratePage: React.FC = () => {
 
   const selectedTemplate = templates.find(t => t.id === selectedId);
 
-  // テンプレート選択時に要件欄へ例文を自動入力（未入力時のみ）
+  // テンプレート選択時に要件欄へ例文を常に自動入力
   const handleSelectTemplate = (id: string) => {
     setSelectedId(id);
     const template = templates.find(t => t.id === id);
-    if (template && !requirement) {
+    if (template) {
       setRequirement(template.promptExample);
     }
   };

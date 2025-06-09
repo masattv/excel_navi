@@ -1,0 +1,81 @@
+templates:
+  manufacturing:
+    - name: 在庫回転率管理
+      description: 在庫回転率を計算し、最適な在庫水準を管理するためのテンプレート
+      formulas:
+        - name: 在庫回転率
+          formula: "=売上原価/((期首在庫+期末在庫)/2)"
+          explanation: "在庫が1年間に何回転したかを示す指標"
+        - name: 在庫回転日数
+          formula: "=365/在庫回転率"
+          explanation: "在庫が売上原価の何日分あるかを示す指標"
+    
+    - name: 生産実績集計
+      description: 生産実績を集計し、効率性を分析するためのテンプレート
+      formulas:
+        - name: 生産効率
+          formula: "=実際の生産数/計画生産数"
+          explanation: "計画に対する実際の生産効率を示す指標"
+        - name: 不良率
+          formula: "=不良品数/総生産数"
+          explanation: "生産全体における不良品の割合"
+
+  retail:
+    - name: 売上予測（移動平均）
+      description: 過去の売上データから移動平均を用いて将来の売上を予測
+      formulas:
+        - name: 3ヶ月移動平均
+          formula: "=AVERAGE(OFFSET(現在セル,-2,0,3,1))"
+          explanation: "直近3ヶ月の平均売上"
+        - name: 指数平滑法
+          formula: "=α*前月実績+(1-α)*前月予測"
+          explanation: "より最近のデータに重みを置いた予測手法"
+
+    - name: キャンペーン効果分析
+      description: キャンペーン実施前後の売上変化を分析
+      formulas:
+        - name: キャンペーン効果
+          formula: "=(キャンペーン期間売上-通常期間売上)/通常期間売上"
+          explanation: "キャンペーンによる売上増加率"
+
+  financial:
+    - name: 損益分岐点計算
+      description: 固定費と変動費から損益分岐点を計算
+      formulas:
+        - name: 損益分岐点売上
+          formula: "=固定費/(1-変動費率)"
+          explanation: "利益が0となる売上高"
+        - name: 損益分岐点販売数
+          formula: "=損益分岐点売上/販売単価"
+          explanation: "利益が0となる販売数"
+
+    - name: 減価償却スケジュール
+      description: 定額法・定率法による減価償却スケジュールを自動生成
+      formulas:
+        - name: 定額法
+          formula: "=(取得価額-残存価額)/耐用年数"
+          explanation: "毎年同額の償却費を計上"
+        - name: 定率法
+          formula: "=未償却残高*償却率"
+          explanation: "未償却残高に一定率を乗じて償却費を計上"
+
+  project_management:
+    - name: ガントチャート日程計算
+      description: プロジェクトの各タスクの開始日・終了日を自動計算
+      formulas:
+        - name: 作業日数
+          formula: "=NETWORKDAYS(開始日,終了日,祝日)"
+          explanation: "営業日数を自動計算"
+        - name: 進捗率
+          formula: "=完了作業量/総作業量"
+          explanation: "プロジェクト全体の進捗状況"
+
+    - name: タスク進捗管理
+      description: タスクの進捗状況と稼働予実を管理
+      formulas:
+        - name: 稼働率
+          formula: "=実際稼働時間/計画稼働時間"
+          explanation: "計画に対する実際の稼働状況"
+        - name: 進捗率
+          formula: "=完了タスク数/総タスク数"
+          explanation: "プロジェクトの進捗状況" 

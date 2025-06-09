@@ -33,25 +33,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 特徴セクション */}
-      <section className="py-16 bg-gray-50">
+      {/* 機能紹介セクション */}
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            主な特徴
+            主な機能
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">直感的な操作</h3>
-              <p className="text-gray-600">
-                複雑な設定は不要。日本語で要件を入力するだけで、最適な数式を自動生成します。
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">業務に最適化</h3>
-              <p className="text-gray-600">
-                日本のビジネスシーンでよく使われる数式パターンを豊富に収録。
-              </p>
-            </div>
+            <Link href="/formula-helper" className="block">
+              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">フォーミュラ開発支援</h3>
+                <p className="text-gray-600 mb-4">
+                  数式のステップ解説、エラー診断、対話型チューニングで、複雑な数式も簡単に作成できます。
+                </p>
+                <p className="text-blue-600">使用シーン：</p>
+                <ul className="list-disc list-inside text-gray-600">
+                  <li>複雑な数式の作り方がわからない</li>
+                  <li>エラーが出たが原因がわからない</li>
+                  <li>数式を少し修正したい</li>
+                </ul>
+              </div>
+            </Link>
+
+            <Link href="/data-visualization" className="block">
+              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">データ可視化・レポート自動化</h3>
+                <p className="text-gray-600 mb-4">
+                  グラフ生成、Office Scripts、ピボットテーブルで、データの分析と可視化を自動化します。
+                </p>
+                <p className="text-blue-600">使用シーン：</p>
+                <ul className="list-disc list-inside text-gray-600">
+                  <li>定期的なレポート作成を自動化したい</li>
+                  <li>データをグラフで可視化したい</li>
+                  <li>ピボットテーブルを簡単に作成したい</li>
+                </ul>
+              </div>
+            </Link>
+
+            <Link href="/data-integration" className="block">
+              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">連携・データ取得</h3>
+                <p className="text-gray-600 mb-4">
+                  Webサービス、Google スプレッドシート、クラウドサービスと連携して、データを自動取得します。
+                </p>
+                <p className="text-blue-600">使用シーン：</p>
+                <ul className="list-disc list-inside text-gray-600">
+                  <li>外部データを自動で取り込みたい</li>
+                  <li>Google スプレッドシートと連携したい</li>
+                  <li>クラウドサービスと連携したい</li>
+                </ul>
+              </div>
+            </Link>
+
+            <Link href="/templates" className="block">
+              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">業種特化テンプレート</h3>
+                <p className="text-gray-600 mb-4">
+                  製造業、小売業、財務分析、プロジェクト管理など、業種別のテンプレートを提供します。
+                </p>
+                <p className="text-blue-600">使用シーン：</p>
+                <ul className="list-disc list-inside text-gray-600">
+                  <li>業種特有の分析をしたい</li>
+                  <li>定型的な計算を自動化したい</li>
+                  <li>プロジェクト管理を効率化したい</li>
+                </ul>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
